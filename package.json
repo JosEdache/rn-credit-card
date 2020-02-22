@@ -1,0 +1,59 @@
+{
+  "name": "@josedache/rn-credit-card",
+  "version": "1.0.0",
+  "private": false,
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "typings": "lib/typings/index.d.ts",
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint .",
+    "tsc": "tsc -p src/tsconfig.json",
+    "build": "rm -rf josedache-* && yarn pack && yarn add -D ./josedache-rn-credit-card-v1.0.0.tgz"
+  },
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JosEdache/rn-credit-card"
+  },
+  "author": {
+    "name": "Edache Joseph",
+    "email": "josedache0@gmail.com",
+    "url": "https://github.com/JosEdache/rn-credit-card"
+  },
+  "dependencies": {
+    "card-validator": "^6.2.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@josedache/rn-credit-card": "./josedache-rn-credit-card-v1.0.0.tgz",
+    "@react-native-community/eslint-config": "^0.0.7",
+    "@types/card-validator": "^4.1.0",
+    "@types/jest": "^25.1.2",
+    "@types/react": "^16.9.20",
+    "@types/react-native": "^0.61.15",
+    "@types/react-test-renderer": "^16.9.2",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.8.0",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.58.0",
+    "react": "16.9.0",
+    "react-native": "0.61.5",
+    "react-test-renderer": "16.9.0",
+    "typescript": "^3.7.5"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
