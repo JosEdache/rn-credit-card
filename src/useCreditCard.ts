@@ -135,7 +135,6 @@ export function useCreditCard(props: HookProps = {}): RenderProps {
       switch (type) {
         case 'number':
           const numberResult = validateNumber(text);
-          console.log(numberResult.isValid);
           setStateOnChangeText(type, numberResult);
           break;
         case 'expirationDate':

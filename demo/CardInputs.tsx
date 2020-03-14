@@ -1,6 +1,7 @@
 import React from 'react';
 import {TextInput, Text, StyleSheet, View, ScrollView} from 'react-native';
 import {RenderProps} from '../src/types';
+import {Logo} from '@josedache/rn-credit-card';
 
 function CardInputs(props: RenderProps) {
   const {values, onChangeText, isPotentiallyValid, isValid} = props;
@@ -13,6 +14,10 @@ function CardInputs(props: RenderProps) {
           {isPotentiallyValid ? 'True' : 'False'}
         </Text>
         <Text>isValid: {isValid ? 'True' : 'False'}</Text>
+        <View style={{flexDirection: 'row'}}>
+          <Logo numberResult={values.number} />
+          <Logo numberResult={values.number} type="no-background" />
+        </View>
       </View>
       <ScrollView>
         <CardInput

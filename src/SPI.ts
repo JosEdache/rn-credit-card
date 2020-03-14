@@ -143,8 +143,9 @@ export function validateExpirationDate(
   options: CardExpirationDateOption = {},
 ) {
   const {format = true, maxElapsedYear, formatType} = options;
-  const result = cardValidator.expirationDate(date, maxElapsedYear);
-  const formattedDate = format ? formatDate(date, formatType) : date;
+  const clean = date.replace(/(\D*)/g, '');
+  const result = cardValidator.expirationDate(clean, maxElapsedYear);
+  const formattedDate = format ? formatDate(clean, formatType) : date;
   return {value: formattedDate, ...result};
 }
 
@@ -189,11 +190,14 @@ export function formatDate(
     //   const YYYYHMM = DATE_FORMATS[type];
     //   return;
     default:
-      const clean = date.replace(/(\D*)/g, '');
-      if (clean.length > 2) {
-        return clean.replace(/^(\d{2})(\d{0,2})/, '$1 / $2');
+      // const clean = date.replace(/(\D*)/g, '');
+      if (date.length > 3) {
+        return date.replace(/^(\d{2})(\d{0,})/, '$1 / $2');
       }
-      return clean;
+      if (date.length > 2) {
+        return date.replace(/^(\d{1})(\d{0,})/, '$1 / $2');
+      }
+      return date;
   }
 }
 

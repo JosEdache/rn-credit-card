@@ -1,6 +1,6 @@
 {
   "name": "@josedache/rn-credit-card",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -12,11 +12,12 @@
     "test": "jest",
     "lint": "eslint .",
     "tsc": "tsc -p src/tsconfig.json",
-    "build": "rm -rf josedache-* && yarn pack && yarn add -D ./josedache-rn-credit-card-v1.0.0.tgz"
+    "build": " rm -rf /home/edache/.cache/yarn/v6/.tmp && yarn remove @josedache/rn-credit-card && yarn cache clean @josedache/rn-credit-card && rm -rf josedache-* && yarn pack && yarn add -D ./josedache-rn-credit-card-v1.0.1.tgz"
   },
   "license": "MIT",
   "files": [
-    "lib"
+    "lib",
+    "declaration.d.ts"
   ],
   "repository": {
     "type": "git",
@@ -32,12 +33,13 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-svg": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
-    "@josedache/rn-credit-card": "./josedache-rn-credit-card-v1.0.0.tgz",
+    "@josedache/rn-credit-card": "./josedache-rn-credit-card-v1.0.1.tgz",
     "@react-native-community/eslint-config": "^0.0.7",
     "@types/card-validator": "^4.1.0",
     "@types/jest": "^25.1.2",
@@ -50,6 +52,8 @@
     "metro-react-native-babel-preset": "^0.58.0",
     "react": "16.9.0",
     "react-native": "0.61.5",
+    "react-native-svg": "^12.0.3",
+    "react-native-svg-transformer": "^0.14.3",
     "react-test-renderer": "16.9.0",
     "typescript": "^3.7.5"
   },

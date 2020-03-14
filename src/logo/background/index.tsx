@@ -9,11 +9,12 @@ import unionpay from './unionpay.svg';
 import maestro from './maestro.svg';
 import mir from './unknown.svg';
 import elo from './elo.svg';
-import hiper from './unknown.svg';
-import hipercard from './unknown.svg';
+// import hiper from './unknown.svg';
+// import hipercard from './unknown.svg';
 import unknown from './unknown.svg';
+import {SvgProps} from 'react-native-svg';
 
-const CARD_TYPES = {
+export const BACKGROUND_LOGOS = {
   visa,
   mastercard,
   'american-express': americanexpress,
@@ -24,23 +25,23 @@ const CARD_TYPES = {
   maestro,
   mir,
   elo,
-  hiper,
-  hipercard,
+  hiper: unknown,
+  hipercard: unknown,
   unknown,
 };
 
-interface LogoProps {
-  type: keyof typeof CARD_TYPES;
+export interface BackgroundLogoProps extends SvgProps {
+  logo?: keyof typeof BACKGROUND_LOGOS;
 }
 
-function Logos(props: LogoProps) {
-  const {type, ...others} = props;
-  const Card = CARD_TYPES[type || 'unknown'];
+export function BackgroundLogo(props: BackgroundLogoProps) {
+  const {logo, ...others} = props;
+  const Card = BACKGROUND_LOGOS[logo!];
   return <Card {...others} />;
 }
 
-Logos.defaultProps = {
-  type: 'unknown',
+BackgroundLogo.defaultProps = {
+  logo: 'unknown',
 };
 
-export default Logos;
+export default BackgroundLogo;
